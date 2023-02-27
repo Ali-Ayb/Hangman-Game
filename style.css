@@ -27,3 +27,57 @@ body {
   border-radius: 50%;
   background-color: #333;
 }
+
+.body {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 100px;
+  background-color: #333;
+}
+
+.left-arm {
+  position: absolute;
+  top: 30px;
+  left: 10%;
+  width: 10px;
+  height: 50px;
+  background-color: #333;
+  transform-origin: bottom;
+  transform: rotate(45deg);
+}
+
+.right-arm {
+  position: absolute;
+  top: 30px;
+  left: 80%;
+  width: 10px;
+  height: 50px;
+  background-color: #333;
+  transform-origin: bottom;
+  transform: rotate(-45deg);
+}
+
+.left-leg {
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  width: 10px;
+  height: 50px;
+  background-color: #333;
+  transform-origin: bottom;
+  transform: rotate(45deg);
+}
+
+.right-leg {
+  position: absolute;
+  top: 100px;
+  left: 80%;
+  width: 10px;
+  height: 50px;
+  background-color: #333;
+  transform-origin: bottom;
+  transform: rotate(-45deg);
+}
