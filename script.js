@@ -22,14 +22,63 @@ window.onload = function () {
     Object.values(words)[
       Math.floor(Math.random() * Object.values(words).length)
     ];
-
   let guess = "";
 
   for (let i = 0; i < word.length; i++) {
-    guess += "_";
+    guess += "_ ";
   }
   let guessed = [];
   let tries = 0;
+
+  const guessInput = document.getElementById("guess-input");
+  const guessButton = document.getElementById("guess-button");
+  const guess_field = document.getElementById("guess");
+  guess_field.textContent = guess;
+  guessButton.addEventListener("click", function () {
+    let letter = guessInput.value;
+    guessInput.value = "";
+    if (letter.length !== 1) {
+      alert("Please enter a single letter.");
+    } else if (guessed.includes(letter)) {
+      alert("You've already guessed that letter.");
+    } else {
+      guessed.push(letter);
+      let index = word.indexOf(letter);
+      if (index === -1) {
+        tries++;
+        updateHangman(tries);
+
+        setTimeout(function () {
+          alert(
+            `Sorry, '${letter}' is not in the word. You have ${
+              6 - tries
+            } tries left.`
+          );
+        }, 100);
+      } else {
+        if (index !== -1) {
+          guess =
+            guess.substring(0, index * 2) +
+            letter +
+            guess.substring(index * 2 + 1);
+          guess_field.textContent = guess;
+          index = word.indexOf(letter, index + 1);
+        }
+      }
+    }
+
+    if (guess === word) {
+      alert(
+        `Congratulations! You guessed the word '${word}' with ${
+          6 - tries
+        } tries remaining.\n\n${words[word]}`
+      );
+    } else if (guess !== word && tries === 6) {
+      alert(
+        `Sorry, you ran out of tries. The word was '${word}'.\n\n${words[word]}`
+      );
+    }
+  });
 
   function updateHangman(tries) {
     switch (tries) {
