@@ -13,6 +13,24 @@ window.onload = function () {
   leftLeg.classList.add("hidden");
   rightLeg.classList.add("hidden");
 
+  const words = {
+    first_name: "ali",
+    second_name: "ayoub",
+  };
+
+  let word =
+    Object.values(words)[
+      Math.floor(Math.random() * Object.values(words).length)
+    ];
+
+  let guess = "";
+
+  for (let i = 0; i < word.length; i++) {
+    guess += "_";
+  }
+  let guessed = [];
+  let tries = 0;
+
   function updateHangman(tries) {
     switch (tries) {
       case 1:
@@ -35,23 +53,4 @@ window.onload = function () {
         break;
     }
   }
-
-  const words_list = {
-    first_word: "ali",
-    second_word: "hasan",
-    third_word: "sami",
-    fourth_word: "ayoub",
-  };
-
-  // Get the number of words in the object
-  const num_words = Object.keys(words_list).length;
-
-  // Generate a random index between 0 and the number of words - 1
-  const random_index = Math.floor(Math.random() * num_words);
-
-  // Get the word at the random index
-  const random_word = Object.values(words_list)[random_index];
-
-  // Print the random word
-  console.log(random_word);
 };
