@@ -8,13 +8,17 @@ body {
   text-align: center;
   font-size: 64px;
 }
-
+.you-title {
+  margin-left: 150px;
+}
 .hangman {
   position: relative;
+  display: inline-block;
   width: 100px;
   height: 200px;
   margin: 0 auto;
-  margin-left: 50px;
+  margin-left: 150px;
+  margin-top: 50px;
 }
 
 .head {
@@ -80,4 +84,21 @@ body {
   background-color: #333;
   transform-origin: bottom;
   transform: rotate(-45deg);
+}
+
+.word {
+  margin-left: 40%;
+  margin-bottom: 200px;
+}
+
+.letter {
+  border: solid 5px;
+  border-color: #333;
+  background-color: #333;
+  display: inline-block;
+  width: 10%;
+}
+
+.hidden {
+  display: none;
 }
